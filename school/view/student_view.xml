@@ -1,0 +1,131 @@
+<!--<?xml version="1.0" encoding="utf-8" />-->
+
+<odoo>
+    <data>
+    <!--list view -->
+    <record id="student_tree" model="ir.ui.view">
+        <field name="name">student.tree</field>
+        <field name="model">school.student</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Student tree">
+                <field name="enrollment_no" class="text-center" string="Enrollment No"/>
+                <field name="name" class="text-center" string="Name"/>
+
+                <field name="gender" class="text-center" string="Gender"/>
+                <field name="percentage" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+<!-- form view-->
+<record id="student_view_form" model="ir.ui.view">
+    <field name="name">school.student.form</field>
+    <field name="model">school.student</field>
+    <field name="priority">5</field>
+    <field name="arch" type="xml">
+        <form name="form view">
+            <sheet>
+                <separator string="Student Information"  class="text-center"/>
+                <notebook>
+                <page name="Personal Information" string="personal information">
+
+                 <field name="photo" class="oe_avatar" widget="image"/>
+
+                    <div class="oe_title">
+                    <h1>
+                    <field name="name_title"  readonly="1"/>
+                    </h1>
+                    </div>
+
+
+                     <group col="4" >
+                          <field name="name" string="Name" placeholder="student name" />
+                    <field name="address" placeholder="address" string="Address"/>
+                   <field name="mobile_no" placeholder="Mobile No"/>
+
+                    <field name="gender" string="Gender"/>
+
+                    <field name="aadhar_doc" filename="aadhar" string="Aadhar Document"/>
+
+
+                             <field name="aadhar" string="Aadhar" />
+                    <field name="age" placeholder="age" string="Age"/>
+                    <field name="isobc"  widget="radio" string="Are you in obc?" options="{'horizontal':True}"/>
+                    <field name="uploadobc" attrs="{'required':[('isobc','=',1)],'invisible':[('isobc','=',2)]}"/>
+
+
+                    <field name="email" widget="email" placeholder="email" string="Email id"/>
+                    <field name="select"/>
+
+                    <field name="born" string="Birth Date"/>
+                    <field name="expense_val" string="currency"/>
+                    <field name="expense"/>
+                    <field name="percentage" widget="percentpie"/>
+
+
+
+
+
+
+                     </group>
+
+
+                            <group>
+
+                            </group>
+
+                      </page>
+                    <page name="academic information" string="academic information">
+                        <group col="4">
+                         <field name="enrollment_no" string="student id" />
+                         <field name="student_standard" string="standard" widget="selection" />
+                         <field name="type" readonly="1"/>
+                         <field name="school_id" string="school name"/><!--options="{'no_create':True}" readonly="1"-->
+                         <field name="student_school_id"/>
+                            <field name="teacher_ids" widget="many2many_checkboxes"  options="{'no_create_edit':True}" domain="[('school_id','=',school_id)]"/><!--widget="many2many_tags"-->
+                         <field name="admission_date" widget="date"/>
+                         <field name="subject_ids" domain="[('standard','=',student_standard)]"/>
+                            <field name="total_marks"/>
+                    </group>
+                    </page>
+                    </notebook>
+
+                    <notebook>
+                        <page name="marks" string="marks">
+                            <field name="obtained_marks">
+                                    <tree editable="top">
+                                            <field name="stud_id"/>
+                                        <field name="subject_name"/>
+
+                                            <field name="obtained"/>
+                                        <field name="total"/>
+
+                                    </tree>
+
+                            </field>
+
+                        </page>
+
+                    </notebook>
+           </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+    <!--action-->
+    <record id="action_to_student" model="ir.actions.act_window">
+        <field name="name">student</field>
+        <field name="res_model">school.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem action="action_to_student" id="student_sub" name="student" parent="school_menu" sequence="2" />
+    </data>
+</odoo>

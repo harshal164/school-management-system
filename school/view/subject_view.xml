@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+
+        <record id="subject_tree_view" model="ir.ui.view">
+            <field name="name">school.subject</field>
+            <field name="model">school.subject</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree name="tree view">
+                    <field name="subject"/>
+                    <field name="standard"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+
+    <record id="subject_action" model="ir.actions.act_window">
+        <field name="name">subject</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+<!--form view-->
+
+<record id="subject_view_form" model="ir.ui.view">
+    <field name="name">school.subject.form</field>
+    <field name="model">school.subject</field>
+    <field name="priority">6</field>
+    <field name="arch" type="xml">
+        <form name="form view">
+            <sheet>
+                <group>
+
+                      <field name="subject"/>
+                    <field name="standard"/>
+                    <field name="type"/>
+
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+
+
+
+    <!--action-->
+    <record id="subject_action" model="ir.actions.act_window">
+        <field name="name">subject</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+        <menuitem action="subject_action" id="subject_menu" name="subject" parent="school_menu"/>
+    </data>
+</odoo>

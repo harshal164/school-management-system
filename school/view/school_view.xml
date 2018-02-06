@@ -1,0 +1,99 @@
+<!--<?xml version="1.0" encoding="utf-8" />-->
+
+<odoo>
+    <data>
+    <!--list view -->
+    <record id="school_tree" model="ir.ui.view">
+        <field name="name">school.tree</field>
+        <field name="model">school.school</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="School_tree">
+                <field name="name" class="text-center" />
+
+                    <field name="school_id" class="text-center"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+
+<!-- form view-->
+<record id="test_view_form" model="ir.ui.view">
+    <field name="name">school.school.form</field>
+    <field name="model">school.school</field>
+    <field name="priority">3</field>
+    <field name="arch" type="xml">
+        <form name="form view">
+            <sheet>
+               <!-- <separator string="School Information"  class="text-center"/>-->
+                <field name="logo" widget="image" class="oe_avatar"/>
+                 <div class="oe_title">
+                    <h1>
+                    <field name="name_title"  readonly="1"/>
+                    </h1>
+                    </div>
+
+                <group col="4" colspan="4" string="School Information">
+
+
+                    <field name="name" string="name" placeholder="school name" />
+                     <field name="school_id" string="school id" />
+                    <field name="school_code" required="1"/>
+                    <field name="priority"  widget="priority" string="ratings"/>
+                    <field name="email" widget="email"/>
+                    <field name="website" widget="url"/>
+                     </group>
+                <group>
+                <field name="about_us"/>
+                </group>
+
+            <notebook name="engineering dept." string="department">
+                <page name="teacher details" string="teacher details">
+                    <field name="teacher_ids">
+                        <tree editable="bottom">
+
+                            <field name="teach_id" string="teacher id"/>
+                            <field name="name" string="name"/>
+                            <field name="age" string="age"/>
+                            <field name="gender" string="gender"/>
+
+
+
+                        </tree>
+
+
+                    </field>
+
+                </page>
+
+
+                <page name="department" string="Department">
+                    <div>
+                        <group>
+                        <field name="department_ids" widget="many2many_tags"/>
+                        </group>
+                    </div>
+                </page>
+
+            </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+    <!--action-->
+    <record id="action_to_school" model="ir.actions.act_window">
+        <field name="name">school</field>
+        <field name="res_model">school.school</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="School" id="school_menu" />
+    <menuitem action="action_to_school" id="school_sub" name="school" parent="school_menu" sequence="1" />
+    </data>
+</odoo>

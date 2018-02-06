@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+    <!--list view -->
+    <record id="teacher_tree11" model="ir.ui.view">
+        <field name="name">teacher.tree.view</field>
+        <field name="model">school.teacher</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="teacher_tree">
+                <field name="teach_id" class="text-center" />
+                <field name="name" class="text-center"/>
+                <field name="gender" class="text-center"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+<!-- form view-->
+<record id="teacher_view_form" model="ir.ui.view">
+    <field name="name">school.teacher.form</field>
+    <field name="model">school.teacher</field>
+    <field name="priority">5</field>
+    <field name="arch" type="xml">
+        <form name="form view">
+            <sheet>
+                <separator string="teacher information" />
+                <group>
+                <field name="teach_id" string="teacher id" />
+                <field name="name" string="name" placeholder="teacher name"/>
+                    <field name="gender" widget="radio"/>
+                    <field name="photo"/>
+                    <field name="school_id" options="{'no_create_edit':True}" required="1"/>
+                    <field name="dept_id"/>
+                    <field name="job_position"/>
+
+                </group>
+           </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+    <!--action-->
+    <record id="action_to_teacher" model="ir.actions.act_window">
+        <field name="name">teacher</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem action="action_to_teacher" id="teacher_sub" name="teacher" parent="school_menu" sequence="3" />
+    </data>
+</odoo>
