@@ -57,6 +57,6 @@
     </record>
 
 
-    <menuitem action="action_to_teacher" id="teacher_sub" name="teacher" parent="school_menu" sequence="3" />
+    <menuitem action="action_to_teacher" id="teacher_sub" name="teacher" parent="school_top" sequence="3" />
     </data>
 </odoo>
