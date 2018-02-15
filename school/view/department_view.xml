@@ -49,6 +49,6 @@
 
 
 
-        <menuitem action="department_action" id="department_menu" name="department" parent="school_menu"/>
+        <menuitem action="department_action" id="department_menu" name="department" parent="school_top"/>
     </data>
 </odoo>

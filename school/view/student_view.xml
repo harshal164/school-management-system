@@ -9,6 +9,7 @@
         <field name="priority">1</field>
         <field name="arch" type="xml">
             <tree string="Student tree">
+                <field name="id" widget="sequence"/>
                 <field name="enrollment_no" class="text-center" string="Enrollment No"/>
                 <field name="name" class="text-center" string="Name" />
 
@@ -43,10 +44,12 @@
 
 
                      <group col="4" >
+                         <field name="id"/>
                           <field name="name" string="Name" placeholder="student name" help="enter your name"/>
                     <field name="address" placeholder="address" string="Address"/>
                    <field name="mobile_no" placeholder="Mobile No"/>
                     <field name="student_age"/>
+                         <field name="time" widget="float_time"/>
                     <field name="gender" string="Gender"/>
 
                     <field name="aadhar_doc" filename="aadhar" string="Aadhar Document"/>

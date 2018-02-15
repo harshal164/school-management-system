@@ -8,11 +8,13 @@ class Student(models.Model):
     _name = "school.student"
     _description = "this is student model"
     _rec_name = "name"
+    id=fields.Integer(string="id")
     enrollment_no = fields.Char(string="number", default=lambda self: self.env['ir.sequence'].get('student.student'))
     name = fields.Char(string="name")
     name_title = fields.Char(related="name")
     address = fields.Char(string="address")
     born = fields.Date(string="dob")
+    time=fields.Float()
     gender = fields.Selection([(1, 'male'), (2, 'female'), (3, 'transgender')], default=1)
     photo = fields.Binary(string="photo")
     aadhar_doc = fields.Binary(string="aadhar document")
