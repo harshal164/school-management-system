@@ -1,0 +1,34 @@
+to access database through terminal:::::::
+
+"type "psql -d db_name" in that
+
+
+type"\d" to see all tables in db
+
+
+\d tablename for definition
+
+
+type command in that with ; to execute query
+
+
+type  "\q" to quit
+
+
+
+
+
+./odoo-bin --addons=addons,../school-management-system --db_user=harshal --db_password=harshal --db_host=localhost --db_port=5432 -d school_db -u school
+
+for starting odoo
+
+
+
+
+
+
+
+
+psql school_db -U harshal -p 5432 -h localhost
+
+to start psql
