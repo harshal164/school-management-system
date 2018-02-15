@@ -8,7 +8,7 @@ class scholarship(models.Model):
 
 
     name=fields.Many2one('school.student',string="name",ondelete="set null")
-    enrollment_no=fields.Integer(related="name.enrollment_no",string="enrollment no")
+    enrollment_no=fields.Char(related="name.enrollment_no",string="enrollment no")
 
 
 

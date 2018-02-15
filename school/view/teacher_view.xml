@@ -28,12 +28,16 @@
             <sheet>
                 <separator string="teacher information" />
                 <group>
-                <field name="teach_id" string="teacher id" />
+                     <field name="photo" widget="image" class="oe_avatar"/>
+
+                </group>
+                <group col="4">
+                    <field name="teach_id" string="teacher id" />
                 <field name="name" string="name" placeholder="teacher name"/>
-                    <field name="gender" widget="radio"/>
-                    <field name="photo"/>
+                    <field name="gender" widget="radio" options="{'horizontal':True}"/>
+
                     <field name="school_id" options="{'no_create_edit':True}" required="1"/>
-                    <field name="dept_id"/>
+                    <field name="dept_id" domain="[('school_id.school_id','=',school_id)]"/>
                     <field name="job_position"/>
 
                 </group>

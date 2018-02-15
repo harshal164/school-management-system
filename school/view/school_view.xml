@@ -38,42 +38,27 @@
                 <group col="4" colspan="4" string="School Information">
 
 
-                    <field name="name" string="name" placeholder="school name" />
-                     <field name="school_id" string="school id" />
-                    <field name="school_code" required="1"/>
-                    <field name="priority"  widget="priority" string="ratings"/>
-                    <field name="email" widget="email"/>
-                    <field name="website" widget="url"/>
+                    <field name="name" string="Name" placeholder="school name" />
+                     <field name="school_id" string="School Id" />
+                    <field name="school_code" required="1" string="School Code"/>
+                    <field name="priority"  widget="priority" string="Ratings"/>
+                    <field name="email" widget="email" string="Email"/>
+                    <field name="website" widget="url" string="Website"/>
                      </group>
                 <group>
-                <field name="about_us"/>
+                <field name="about_us" string="About us"/>
                 </group>
 
             <notebook name="engineering dept." string="department">
-                <page name="teacher details" string="teacher details">
-                    <field name="teacher_ids">
-                        <tree editable="bottom">
 
-                            <field name="teach_id" string="teacher id"/>
-                            <field name="name" string="name"/>
-                            <field name="age" string="age"/>
-                            <field name="gender" string="gender"/>
-
-
-
-                        </tree>
-
-
-                    </field>
-
-                </page>
 
 
                 <page name="department" string="Department">
-                    <div>
-                        <group>
+                    <div col="4">
+
                         <field name="department_ids" widget="many2many_tags"/>
-                        </group>
+
+                        <div col="2"></div>
                     </div>
                 </page>
 
@@ -85,12 +70,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <record id="school_kanban_view" model="ir.ui.view">
+        <field name="name">school.kanban.view</field>
+        <field name="model">school.school</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <kanban class="">
+
+
+                <templates>
+                    <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+
+                        <div class="o_kanban_image">
+                            <img t-att-src="kanban_image('school.school', 'logo', record.id.value)"/>
+
+                        </div>
+                        <div class="oe_kanban_title">
+
+                                <field name="name"/>
+
+
+                        </div>
+                        <field name="priority" widget="priority" readonly="1"/>
+                        <div>
+                        <strong>
+                        <field name="website"/>
+                        </strong>
+                        </div>
+                        <div class="oe_kanban_mail_new">
+                            <field name="email"/>
+                        </div>
+                    </div>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--action-->
     <record id="action_to_school" model="ir.actions.act_window">
         <field name="name">school</field>
         <field name="res_model">school.school</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <menuitem name="School" id="school_menu" />

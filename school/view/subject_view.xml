@@ -39,7 +39,7 @@
 
                       <field name="subject"/>
                     <field name="standard"/>
-                    <field name="type"/>
+                    <field name="type" readonly="1"/>
 
                 </group>
             </sheet>

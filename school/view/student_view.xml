@@ -10,7 +10,8 @@
         <field name="arch" type="xml">
             <tree string="Student tree">
                 <field name="enrollment_no" class="text-center" string="Enrollment No"/>
-                <field name="name" class="text-center" string="Name"/>
+                <field name="name" class="text-center" string="Name" />
+
 
                 <field name="gender" class="text-center" string="Gender"/>
                 <field name="percentage" widget="progressbar"/>
@@ -42,17 +43,17 @@
 
 
                      <group col="4" >
-                          <field name="name" string="Name" placeholder="student name" />
+                          <field name="name" string="Name" placeholder="student name" help="enter your name"/>
                     <field name="address" placeholder="address" string="Address"/>
                    <field name="mobile_no" placeholder="Mobile No"/>
-
+                    <field name="student_age"/>
                     <field name="gender" string="Gender"/>
 
                     <field name="aadhar_doc" filename="aadhar" string="Aadhar Document"/>
 
 
                              <field name="aadhar" string="Aadhar" />
-                    <field name="age" placeholder="age" string="Age"/>
+
                     <field name="isobc"  widget="radio" string="Are you in obc?" options="{'horizontal':True}"/>
                     <field name="uploadobc" attrs="{'required':[('isobc','=',1)],'invisible':[('isobc','=',2)]}"/>
 
@@ -61,6 +62,9 @@
                     <field name="select"/>
 
                     <field name="born" string="Birth Date"/>
+                     <field name="age" placeholder="age" string="Age"/>
+                         <field name="evenodd"/>
+                         <field name="semester" />
                     <field name="expense_val" string="currency"/>
                     <field name="expense"/>
                     <field name="percentage" widget="percentpie"/>
@@ -87,7 +91,7 @@
                          <field name="student_school_id"/>
                             <field name="teacher_ids" widget="many2many_checkboxes"  options="{'no_create_edit':True}" domain="[('school_id','=',school_id)]"/><!--widget="many2many_tags"-->
                          <field name="admission_date" widget="date"/>
-                         <field name="subject_ids" domain="[('standard','=',student_standard)]"/>
+                         <field name="subject_ids" domain="[('school.school.standard','=',student_standard)]"/>
                             <field name="total_marks"/>
                     </group>
                     </page>

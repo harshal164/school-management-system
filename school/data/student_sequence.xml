@@ -1,0 +1,15 @@
+<odoo>
+	<data>
+	<!-- Sequence of an Student for Registration No -->
+	<record id="stud_seq" model="ir.sequence">
+	<field name="name">Student Sequence</field>
+	<field name="code">student.student</field>
+	<field name="number_next">1</field>
+	<field name="number_increment">1</field>
+	<field name="padding">5</field>
+	<field name="prefix">STD/%(year)s/</field>
+	<!-- <field name="suffix">ID</field> -->
+	</record>
+
+	</data>
+</odoo>
