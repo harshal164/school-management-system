@@ -35,14 +35,19 @@
     <field name="arch" type="xml">
         <form name="form view">
             <sheet>
+            <div  style="background:#e692ea;">
+
+
                 <separator string="Subject Details" class="text-center"/>
-                <group col="4">
+                <group col="4" >
 
                       <field name="subject"/>
-                    <field name="standard"/>
+                    <field name="standard" widget="selection"/>
                     <field name="type" readonly="1"/>
 
                 </group>
+
+            </div>
             </sheet>
         </form>
     </field>
