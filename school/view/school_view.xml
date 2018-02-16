@@ -33,12 +33,16 @@
                     <h1>
                     <field name="name_title"  readonly="1"/>
                     </h1>
+                     <h2>
+                         <field name="address_title" readonly="1"/>
+                     </h2>
                     </div>
 
                 <group col="4" colspan="4" string="School Information">
 
 
                     <field name="name" string="Name" placeholder="school name" />
+                    <field name="address"/>
                      <field name="school_id" string="School Id" />
                     <field name="school_code" required="1" string="School Code"/>
                     <field name="priority"  widget="priority" string="Ratings"/>
@@ -145,6 +149,8 @@
     </record>
 
     <menuitem name="School" id="school_menu" />
-    <menuitem action="action_to_school" id="school_sub" name="school" parent="school_menu" sequence="1" />
+    <menuitem id="school_top" name="school" parent="school_menu" sequence="1" />
+     <menuitem action="action_to_school" id="school_sub" name="school" parent="school_top" sequence="1" />
+
     </data>
 </odoo>

@@ -14,7 +14,8 @@
             'view/scholarship_view.xml',
             'view/subject_view.xml',
             'view/department_view.xml',
-            'data/student_sequence.xml'],
+            'data/student_sequence.xml',
+            'data/teacher_sequence.xml'],
     'installable':True,
     'auto_install':False,
     'application':True

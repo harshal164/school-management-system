@@ -9,7 +9,7 @@
         <field name="priority">1</field>
         <field name="arch" type="xml">
             <tree string="teacher_tree">
-                <field name="teach_id" class="text-center" />
+
                 <field name="name" class="text-center"/>
                 <field name="gender" class="text-center"/>
             </tree>
@@ -32,7 +32,7 @@
 
                 </group>
                 <group col="4">
-                    <field name="teach_id" string="teacher id" />
+
                 <field name="name" string="name" placeholder="teacher name"/>
                     <field name="gender" widget="radio" options="{'horizontal':True}"/>
 
@@ -57,6 +57,6 @@
     </record>
 
 
-    <menuitem action="action_to_teacher" id="teacher_sub" name="teacher" parent="school_menu" sequence="3" />
+    <menuitem action="action_to_teacher" id="teacher_sub" name="teacher" parent="school_top" sequence="3" />
     </data>
 </odoo>

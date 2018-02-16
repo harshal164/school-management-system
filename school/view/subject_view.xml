@@ -61,6 +61,6 @@
     </record>
 
 
-        <menuitem action="subject_action" id="subject_menu" name="subject" parent="school_menu"/>
+        <menuitem action="subject_action" id="subject_menu" name="subject" parent="school_top"/>
     </data>
 </odoo>
