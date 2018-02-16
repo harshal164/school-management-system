@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="school_sequence" model="ir.sequence">
+            <field name="name">School id generator</field>
+            <field name="code">school.sequence</field>
+            <field name="number_next">1</field>
+	        <field name="number_increment">1</field>
+            <field name="prefix">SCH/</field>
+            <field name="padding">3</field>
+        </record>
+
+    </data>
+</odoo>

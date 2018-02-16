@@ -6,7 +6,7 @@ import datetime
 class School(models.Model):
     _name = "school.school"
     _description = "school_management_system"
-    school_id=fields.Integer(string="school id")
+    school_id=fields.Char(string="school id", default=lambda self: self.env['ir.sequence'].get('school.sequence'))
     logo=fields.Binary(string="logo")
     name=fields.Char(string="name")
     address=fields.Char()

@@ -9,9 +9,12 @@
         <field name="priority">1</field>
         <field name="arch" type="xml">
             <tree string="School_tree">
-                <field name="name" class="text-center" />
+                 <field name="school_id" string="School Id" />
+                <field name="name" string="Name"/>
+                <field name="address" string="Address"/>
+                <field name="email" string="Email Id"/>
+                <field name="website" string="Web Site"/>
 
-                    <field name="school_id" class="text-center"/>
 
             </tree>
         </field>
