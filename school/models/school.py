@@ -25,8 +25,9 @@ class School(models.Model):
 class Teacher(models.Model):
     _name = "school.teacher"
     _description = "this is teacher model"
-
+    teacher_id=fields.Char(default=lambda self: self.env['ir.sequence'].get('teacher.sequence'))
     name=fields.Char(string="name")
+    name_title=fields.Char(related="name")
     age=fields.Integer(string='Age')
     gender=fields.Selection([(1,'male'),(2,'female')],default=1)
     photo=fields.Binary(string="photo")

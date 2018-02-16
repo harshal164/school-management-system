@@ -7,7 +7,7 @@
 	<field name="number_next">1</field>
 	<field name="number_increment">1</field>
 	<field name="padding">5</field>
-	<field name="prefix">teacher/%(y)s/</field>
+	<field name="prefix">TEACH/%(y)s/</field>
 	<!-- <field name="suffix">ID</field> -->
 	</record>
 
