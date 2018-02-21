@@ -14,7 +14,7 @@
 
 
                 <field name="gender" class="text-center" string="Gender"/>
-                <field name="percentage" widget="progressbar"/>
+
             </tree>
         </field>
     </record>
@@ -29,6 +29,7 @@
     <field name="arch" type="xml">
         <form name="form view">
             <sheet>
+
                 <separator string="Student Information"  class="text-center"/>
                 <notebook>
                 <page name="Personal Information" string="personal information">
@@ -84,14 +85,14 @@
                       </page>
                     <page name="academic information" string="academic information">
                         <group col="4">
-                         <field name="enrollment_no" string="student id" />
+                         <field name="enrollment_no" string="student id" readonly="1" />
                          <field name="student_standard" string="standard" widget="selection" />
                          <field name="type" readonly="1"/>
                          <field name="school_id" string="school name"/><!--options="{'no_create':True}" readonly="1"-->
                          <field name="student_school_id"/>
                             <field name="teacher_ids" widget="many2many_checkboxes"  options="{'no_create_edit':True}" domain="[('school_id','=',school_id)]"/><!--widget="many2many_tags"-->
                          <field name="admission_date" widget="date"/>
-                         <field name="subject_ids" domain="[('school.school.standard','=',student_standard)]"/>
+                         <field name="subject_ids" domain="[('school.subject.standard','=',student_standard)]"/>
                             <field name="total_marks"/>
                     </group>
                     </page>
@@ -100,7 +101,7 @@
                     <notebook>
                         <page name="marks" string="marks">
                             <field name="obtained_marks">
-                                    <tree editable="top">
+                                    <tree editable="bottom">
                                             <field name="stud_id"/>
                                         <field name="subject_name"/>
 

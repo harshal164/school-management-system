@@ -67,7 +67,7 @@ class Student(models.Model):
     @api.onchange('student_age')
     def onchange_student_age(self):
         if self.student_age < 18:
-            raise Warning("you are beow 18")
+            raise Warning("you are below 18")
 
     teacher_ids = fields.Many2many('school.teacher', 'student_teacher_relation_table', 'stud_id', 'teach_id')
     student_standard = fields.Many2one('school.standard', string="student ")
@@ -76,20 +76,9 @@ class Student(models.Model):
     subject_ids = fields.Many2many('school.subject', 'standard', string="subject")
     student_scholarship = fields.Many2one("student.scholarship", string="student scholarship")
     age = fields.Integer(string='Age', compute="calculate_age")
-    student_age = fields.Integer(string="Student Age")
+    student_age = fields.Integer(string="Student Age", default=18)
     evenodd = fields.Selection([('1', 'even'), ('2', 'odd')], default='1')
     semester = fields.Many2one('school.evenodd', 'semester')
-
-    @api.onchange('evenodd')
-    def onchange_evenodd(self):
-
-        res = {}
-
-        print "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeEEEEEEE:::::::::::::::::::::::::::"
-
-        res['domain'] = {'semester': [('evenodd', '=', self.semester.iseven)]}
-        print res
-        return res
 
     @api.constrains('age')
     def age_validation(self):
@@ -103,7 +92,7 @@ class Student(models.Model):
             total += rec.obtained
         self.total_marks = total
 
-    @api.multi
+    @api.depends('obtained_marks')
     def calculate_percentage(self):
 
         total = 0
@@ -113,6 +102,7 @@ class Student(models.Model):
                 for rec in rec1.obtained_marks:
                     total += rec.obtained
                     count += rec.total
+                    print "count:::::::::::::::::::::::::::::::::::::::::::::",count
                 rec1.percentage = (total * 100 / count)
             else:
                 rec1.percentage = 0
@@ -123,7 +113,7 @@ class Student(models.Model):
     expense_val = fields.Many2one('res.currency', 'currency')
     expense = fields.Monetary(currency_field="expense_val", string="fees")
     obtained_marks = fields.One2many('marks', 'stud_id', 'obtainde marks')
-    total_marks = fields.Integer(string="total marks", compute="calculate_total")
+    total_marks = fields.Integer(string="total marks", compute="calculate_total",store=True)
     percentage = fields.Integer(compute='calculate_percentage')
 
 

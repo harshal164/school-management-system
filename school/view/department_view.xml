@@ -34,10 +34,10 @@
     <field name="arch" type="xml">
         <form name="form view">
             <sheet>
-                <group>
-                  <field name="name" string="name"/>
+                <group col="8">
+                  <field name="name" string="name" colspan="5"/>
 
-                    <field name="code" string="code" />
+                    <field name="code" string="code" colspan="3" />
 
                 </group>
             </sheet>
